@@ -34,3 +34,44 @@ function checkEmpty(val, elm) {
 }
 /* Không chỉnh sửa bất kì đoạn code nào ở trên */
 /* Code từ đây */
+nameInput.addEventListener("mouseenter", () => {
+    checkEmpty(nameInput.value, nameInput)
+})
+nameInput.addEventListener("input", () => { 
+    checkEmpty(nameInput.value, nameInput) 
+})
+const emailInput = document.querySelector("#input__email") 
+const passInput = document.querySelector("#input__password") 
+const typeagain = document.querySelector("#input__password-again") 
+emailInput.addEventListener("mouseenter", () => { 
+    checkEmpty(emailInput.value, emailInput)
+})
+emailInput.addEventListener("input", () => { 
+    checkEmpty(emailInput.value, emailInput) 
+}) 
+passInput.addEventListener("mouseenter", () => { 
+    checkEmpty(passInput.value, passInput) 
+}) 
+passInput.addEventListener("input", () => { 
+    checkEmpty(passInput.value, passInput) 
+}) 
+typeagain.addEventListener("mouseenter", () => { 
+    checkEmpty(typeagain.value, typeagain) 
+}) 
+typeagain.addEventListener("input", () => { 
+    checkEmpty(typeagain.value, typeagain) 
+})
+submitBtn.addEventListener("click", function (e) {
+    e.preventDefault() 
+    const validates = [nameInput, emailInput, passInput, typeagain]
+    let ktra = true
+    validates.forEach(input => {
+        checkEmpty(input.value, input);
+        if (input.value.trim() === "") {
+            ktra = false
+        }
+    })
+    if (ktra) {
+        alert("Đăng ký thành công!")
+    }
+})
